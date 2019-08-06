@@ -1,6 +1,5 @@
 package com.example.demo.domain;
 
-
 /**
  * チームのドメイン.
  * 
@@ -8,18 +7,19 @@ package com.example.demo.domain;
  *
  */
 public class Team {
-
+	private Integer id;
 	private String leagueName;
 	private String teamName;
 	private String headquarters;
 	private String inauguration;
 	private String history;
 
-	public Team() {
-	}
+	public Team() {}
 
-	public Team(String leagueName, String teamName, String headquarters, String inauguration, String history) {
+	public Team(Integer id, String leagueName, String teamName, String headquarters, String inauguration,
+			String history) {
 		super();
+		this.id = id;
 		this.leagueName = leagueName;
 		this.teamName = teamName;
 		this.headquarters = headquarters;
@@ -29,8 +29,16 @@ public class Team {
 
 	@Override
 	public String toString() {
-		return "Team [leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters=" + headquarters
-				+ ", inauguration=" + inauguration + ", history=" + history + "]";
+		return "Team [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
+				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getLeagueName() {
@@ -72,5 +80,7 @@ public class Team {
 	public void setHistory(String history) {
 		this.history = history;
 	}
+	
+	
 
 }
