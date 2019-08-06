@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>衣類検索</h1>
+	
+	<form th:action="@{clothSearch}" method="post">
+		<input type="radio" name="gender" value="0"> Men
+		<input type="radio" name="gender" value="1"> Women
+	</form>
+
+</body>
+</html>

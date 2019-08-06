@@ -7,10 +7,33 @@
 <body>
 
 	<h1>ホテル検索</h1>
-	<form th:action="@{/serch}" model="post">
-		<input type="text" name="price"><br>
+	<form th:action="@{/hotel/serch}" method="post">
+		<input type="text" name="price">円以下<br>
 		<button>検索</button>
 	</form>
+	<br>
+	<br>
+	
+	
+	<table border="1" width="300" th:each="hotel : ${hotelList}">
+	
+		<tr>
+			<th>ホテル名</th>
+			<td th:text="${hotel.hotelName}"></td>
+		</tr>
+		
+		<tr>
+			<th>最寄駅</th>
+			<td th:text="${hotel.nearestStation}"></td>
+		</tr>
+		
+		<tr>
+			<th>価格</th>
+			<td th:text="${hotel.price}"></td>
+		</tr>
+		
+	</table><br>
+	<br>
 
 </body>
 </html>
