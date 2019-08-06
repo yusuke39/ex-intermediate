@@ -8,10 +8,42 @@
 
 	<h1>衣類検索</h1>
 	
-	<form th:action="@{clothSearch}" method="post">
-		<input type="radio" name="gender" value="0"> Men
+	<form th:action="@{/cloth/clothSearch}" method="post">
+		<input type="radio" name="gender" value="0"> Men<br>
 		<input type="radio" name="gender" value="1"> Women
-	</form>
+		<select name="color">
+			<option selected value="青">青</option>
+			<option value="白">白</option>
+			<option value="黄">黄</option>
+			<option value="赤">赤</option>
+		</select><br>
+		<button>検索</button>
+		</form>
+		<br>
+		<br>
+		
+		<table border="1" th:each="cloth : ${clothList}">
+	
+		<tr>
+			<th>ホテル名</th>
+			<td th:text="${cloth.genre}"></td>
+		</tr>
+		
+		<tr>
+			<th>最寄駅</th>
+			<td th:text="${cloth.size}"></td>
+		</tr>
+		
+		<tr>
+			<th>価格</th>
+			<td th:text="${cloth.price}"></td>
+		</tr>
+		
+	</table><br>
+		
+	
+	
+	
 
 </body>
 </html>
