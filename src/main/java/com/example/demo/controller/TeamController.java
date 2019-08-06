@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,27 +12,42 @@ import com.example.demo.service.TeamService;
 
 
 
+/**
+ * チームを表示検索するコントローラー．
+ * 
+ * @author hiranoyuusuke
+ *
+ */
 @Controller
 @RequestMapping("")
 public class TeamController {
 	
 	@Autowired
 	private TeamService service;
-	
-	@Autowired
-	private HttpSession session;
 
 	
+	/**
+	 * チーム情報を全権取得.
+	 * 
+	 * @return チーム名一覧表示
+	 */
 	@RequestMapping("")
-	public String allTeam() {
+	public String allTeam(Model model) {
 		List<Team> teamList = service.findAllTeam();
 		
 		
-		session.setAttribute("teamList", teamList);
+		model.addAttribute("teamList", teamList);
 		
 		return "allTeam";
 	}
 	
+	/**
+	 * チーム情報を１件取得.
+	 * 
+	 * @param id チームID
+	 * @param model リクエストパラメーター
+	 * @return　チーム詳細表示
+	 */
 	@RequestMapping("/teamDetail")
 	public String detail(Integer id, Model model) {
 		Team team = service.findTeam(id);

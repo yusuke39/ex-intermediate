@@ -7,7 +7,7 @@
 <body>
 
 <h1>野球チーム一覧</h1>
-	<span th:each="team : ${session.teamList}">
+	<span th:each="team : ${teamList}">
 		<a th:href="@{'teamDetail?id=' + ${team.id}}">
 		  <span th:text="${team.teamName}"></span><br>
 		</a>

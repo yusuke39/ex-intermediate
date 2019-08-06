@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.Team;
 
+/**
+ * チーム情報を検索するrepository
+ * 
+ * @author hiranoyuusuke
+ *
+ */
 @Repository
 public class TeamRepository {
 	
@@ -29,6 +35,11 @@ public class TeamRepository {
 		return team;
 	};
 	
+	/**
+	 * チーム情報全件検索.
+	 * 
+	 * @return 全件のチーム情報
+	 */
 	public List<Team> findAll(){
 		String findAllSql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM teams";
 		
@@ -38,6 +49,12 @@ public class TeamRepository {
 		
 	}
 	
+	/**
+	 * 各チームの情報取得（１件分）
+	 * 
+	 * @param id チームID
+	 * @return　チーム情報（１件分）
+	 */
 	public Team load(Integer id) {
 		String sql = "SELECT id, league_name, team_name, headquarters, inauguration, history FROM teams WHERE id = :id";
 		

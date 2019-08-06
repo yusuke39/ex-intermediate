@@ -7,11 +7,17 @@ package com.example.demo.domain;
  *
  */
 public class Team {
+	/**ID*/
 	private Integer id;
+	/**リーグネーム*/
 	private String leagueName;
+	/**チームネーム*/
 	private String teamName;
+	/**本拠地*/
 	private String headquarters;
+	/**発足*/
 	private String inauguration;
+	/**歴史*/
 	private String history;
 
 	public Team() {}

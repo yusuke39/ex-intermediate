@@ -17,10 +17,21 @@ public class TeamService {
 	private TeamRepository repository;
 	
 	
+	/**
+	 * チーム情報全件検索.
+	 * 
+	 * @return　全チーム情報
+	 */
 	public List<Team> findAllTeam() {
 		return repository.findAll();
 	}
 	
+	/**
+	 * チーム情報１件検索.
+	 * 
+	 * @param id チームID
+	 * @return　チーム情報
+	 */
 	public Team findTeam(Integer id) {
 		return repository.load(id);
 	}
